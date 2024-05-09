@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register RoboChat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="register.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="frame">
+            <div class="chat_header">
+                <h1>RoboChat</h1>
+            </div>
+            <div class="nav">
+                <ul class"links">
+                    <li class="signin-active"><a class="btn">Sign in</a></li>
+                    <li class="signup-inactive"><a class="btn">Sign up </a></li>
+                </ul>
+            </div>
+            <div ng-app ng-init="checked = false">
+                <form id="form-signin" class="form-signin" action="" method="post" name="form">
+                    <label for="login">Username</label>
+                    <input class="form-styling" type="text" name="login" placeholder="" />
+                    <label for="password">Password</label>
+                    <input class="form-styling" type="text" name="password" placeholder="" />
+                    <input type="checkbox" id="checkbox" />
+                   
+                
+
+                    <input type="submit" a ng-click="checked = !checked" class="btn-signin" value="Sign In">
+                </form>
+
+                <form id="form-signup" class="form-signup" action="" method="post" name="form">
+                    <label for="login">Name</label>
+                    <input class="form-styling" type="text" name="login" placeholder="" />
+
+                    <label for="password">Password</label>
+                    <input class="form-styling" type="text" name="password" placeholder="" />
+                    <label for="passwordRepeat">Confirm password</label>
+                    <input class="form-styling" type="text" name="passwordRepeat" placeholder="" />
+               
+                    <input type="submit" a ng-click="checked = !checked" class="btn-signup" value="Sign Up">
+                </form>
+
+                <div class="success">
+                    <svg width="270" height="270" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" id="check"
+                        ng-class="checked ? 'checked' : ''">
+                        <path fill="#ffffff" d="M40.61,23.03L26.67,36.97L13.495,23.788c-1.146-1.147-1.359-2.936-0.504-4.314
+                  c3.894-6.28,11.169-10.243,19.283-9.348c9.258,1.021,16.694,8.542,17.622,17.81c1.232,12.295-8.683,22.607-20.849,22.042
+                  c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578" />
+                    </svg>
+                    <div class="successtext">
+                        <p> Thanks for signing up! Check your email for confirmation.</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div>
+               
+                <div class="profile-photo">✔</div>
+                <h1 class="welcome">Welcome, Chris</h1>
+                <a class="btn-goback" value="Refresh" onClick="history.go()">Go back</a>
+            </div>
+        </div>
+
+       
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $(".btn").click(function () {
+                $(".form-signin").toggleClass("form-signin-left");
+                $(".form-signup").toggleClass("form-signup-left");
+                $(".frame").toggleClass("frame-long");
+                $(".signup-inactive").toggleClass("signup-active");
+                $(".signin-active").toggleClass("signin-inactive");
+                $(".forgot").toggleClass("forgot-left");
+                $(this).removeClass("idle").addClass("active");
+            });
+        });
+
+        $(function () {
+            $(".btn-signup").click(function () {
+                $(".nav").toggleClass("nav-up");
+                $(".form-signup-left").toggleClass("form-signup-down");
+                $(".success").toggleClass("success-left");
+                $(".frame").toggleClass("frame-short");
+            });
+        });
+
+        $(function () {
+            $(".btn-signin").click(function () {
+                $(".btn-animate").toggleClass("btn-animate-grow");
+                $(".welcome").toggleClass("welcome-left");
+                $(".cover-photo").toggleClass("cover-photo-down");
+                $(".frame").toggleClass("frame-short");
+                $(".profile-photo").toggleClass("profile-photo-down");
+                $(".btn-goback").toggleClass("btn-goback-up");
+                $(".forgot").toggleClass("forgot-fade");
+            });
+        });
+    </script>
+
+
+    <script src="auth.js"></script>
+</body>
+
+</html>
